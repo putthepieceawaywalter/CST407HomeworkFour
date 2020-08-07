@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/manhattan">
+    <EditText
+        android:id="@+id/editTxtFirstName"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:hint="@string/first_name"
+        />
+    <EditText
+        android:id="@+id/editTxtLastName"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:hint="@string/last_name"
+        />
+    <EditText
+        android:id="@+id/editTxtEmail"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:hint="@string/email"
+        />
+    <EditText
+        android:id="@+id/editTxtPassword"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:hint="@string/password"
+        />
+    <Button
+        android:id="@+id/btn_create_account_submit"
+        android:layout_width="100dp"
+        android:layout_marginTop="50dp"
+        android:layout_height="wrap_content"
+        android:text="@string/submit"
+        />
+</LinearLayout>

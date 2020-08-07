@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="drink_name" type="id" />
+    <item name="ingredient_one" type="id" />
+    <item name="ingredient_two" type="id" />
+    <item name="ingredient_three" type="id" />
+    <item name="ingredient_four" type="id" />
+    <item name="ingredient_five" type="id" />
+    <item name="drink_photo" type="id" />
+</resources>

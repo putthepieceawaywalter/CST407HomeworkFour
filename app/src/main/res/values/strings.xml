@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">HomeworkFour</string>
+    <string name="title">Drinder</string>
+    <string name="description">The app that lets you choose your favorite drinks</string>
+    <string name="view_drinks">Scroll through some drinks</string>
+    <string name="view_favorited_drinks">View your favorited drinks</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="create_account">Create Account</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="submit">Submit</string>
+    <string name="placeholder">placeholder</string>
+
+</resources>
