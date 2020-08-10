@@ -3,10 +3,10 @@ Notes about my project
 
 I struggled a lot more with viewing my favorited items than I did with any other part of this app.
 
-I can't have liked drinks persist between sessions unless I either ask the cocktail api for the info for the liked drinks or store all of the info for the liked drinks on firebase
-for a few reasons I'm going to store it on firebase
-1. I think it will be easier
-2. I think it will be faster
+I decided the easiest way to get a smooth submission would be to create a second recycler view (one for favorited items and one for viewing random drinks) 
 
-If this were a larger scale application I would do the api calls so I wouldn't have to store so much redundant data but as this project is due in 12 hours and I work for 8 of those I have to implement
-what I think I will have time for. 
+If you press the "Scroll through some drinks" button the app will ask thecocktailapi for 10 random drinks and display them to the user.  The user can press the heart button which will add them to the local likedDrinks list and to the firebase database (if they press the heart button again it de-selects and removes the item from the database).  When the user presses "view my favorited drinks" the user can scroll through a recycler view of drink pictures with their titles that the app has gotten from the firebase database.  As of right now, while viewing favorited drinks, they cannot click the image to view the description (ingredients and instructions) from that screen but I plan to have that implemented for my project submission.
+
+Another major flaw is that a user cannot currently un favorite something from the view my favorited drinks screen.  Again I plan to implement that in the project submission.
+
+I've never made an android app with data that persists before so this was super fun, its also extremeley relevant for my senior project.
