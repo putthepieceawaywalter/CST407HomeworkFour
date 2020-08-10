@@ -42,11 +42,6 @@ class LoginActivity : AppCompatActivity() {
         btnLogin = findViewById<View>(R.id.btn_login) as Button
         btnCreateAccount = findViewById<View>(R.id.btn_create_account) as Button
         mAuth = FirebaseAuth.getInstance()
-//        tvForgotPassword!!
-//            .setOnClickListener { startActivity(
-//                Intent(this@LoginActivity,
-//                    ForgotPasswordActivity::class.java)
-//            ) }
         btnCreateAccount!!
             .setOnClickListener { startActivity(
                 Intent(this@LoginActivity,

@@ -40,7 +40,7 @@
         android:text="@string/view_drinks" />
 
     <Button
-        android:id="@+id/btn_favorite_button"
+        android:id="@+id/btn_view_favorite_drinks"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/view_favorited_drinks"
