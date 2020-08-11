@@ -12,9 +12,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="32dp"
+            android:fontFamily="sans-serif-condensed-medium"
             android:text="@string/placeholder"
             />
-    <RelativeLayout
+    <S
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
@@ -24,6 +25,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="30dp"
                 android:text="@string/placeholder"
+                android:fontFamily="sans-serif-condensed-medium"
                 />
 
         <TextView
@@ -33,9 +35,10 @@
             android:paddingRight="10dp"
             android:layout_alignParentRight="true"
             android:text="@string/placeholder"
-            android:textSize="20dp" />
+            android:textSize="20dp"
+            android:fontFamily="sans-serif-condensed-medium"/>
 
-    </RelativeLayout>
+    </S>
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

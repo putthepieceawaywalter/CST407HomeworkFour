@@ -12,5 +12,8 @@
     <string name="last_name">Last Name</string>
     <string name="submit">Submit</string>
     <string name="placeholder">placeholder</string>
+    <string name="drink_name">drink name</string>
+    <string name="remove">remove</string>
+
 
 </resources>

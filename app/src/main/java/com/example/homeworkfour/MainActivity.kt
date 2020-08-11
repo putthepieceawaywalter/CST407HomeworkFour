@@ -52,8 +52,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener{
         when(button?.id) {
             R.id.btn_scroll_drinks_button -> {
                 submit()
-                //break
-                //hideKeyboard()
+
             }
             R.id.btn_view_favorite_drinks -> {
                 favorites()
