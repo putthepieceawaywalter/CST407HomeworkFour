@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener{
 
 
     private var drinks: MutableList<Result?> = ArrayList()
-
+    val newRequest = ServiceBuilder.buildService()
 
     val likedDrinks: MutableList<LikedDrink> = ArrayList<LikedDrink>()
 
@@ -44,6 +44,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener{
 
         btn_scroll_drinks_button.setOnClickListener(this)
         btn_view_favorite_drinks.setOnClickListener(this)
+        btn_search.setOnClickListener(this)
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = drinksAdapter
     }
@@ -51,11 +52,15 @@ class MainActivity : AppCompatActivity(), View.OnClickListener{
     override fun onClick(button: View?) {
         when(button?.id) {
             R.id.btn_scroll_drinks_button -> {
-                submit()
+                scrollDrinks()
 
             }
             R.id.btn_view_favorite_drinks -> {
                 favorites()
+            }
+            R.id.btn_search -> {
+                search()
+                hideKeyboard()
             }
         }
     }
@@ -73,6 +78,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener{
 
 
     }
+
 //    private fun favoriteDetails(likedDrink : LikedDrink) {
     // Hey Lucas I know you don't like to do's in comments but you'll have to deal with this one!
 //        val intent = Intent(this, LikedDrink::class.java)
@@ -112,13 +118,10 @@ class MainActivity : AppCompatActivity(), View.OnClickListener{
     private fun onFavoriteDrinkError() {
         Toast.makeText(this, "No results found", Toast.LENGTH_SHORT).show()
     }
-    private fun submit() {
+    private fun scrollDrinks() {
 
         var searchTerms = "Long Island"
-
-
-        val newRequest = ServiceBuilder.buildService()
-        val newCall = newRequest.searchDrinks(searchTerms)
+        val newCall = newRequest.randomDrinks(searchTerms)
 
         newCall.enqueue(object : Callback<Drinks> {
             override fun onFailure(call: Call<Drinks>, t: Throwable) {
@@ -146,7 +149,6 @@ class MainActivity : AppCompatActivity(), View.OnClickListener{
     private fun favorites() {
 
         val user = FirebaseAuth.getInstance().currentUser
-        //val likedDrinks = LikedDrink(null, user!!.uid, null, null, null )
         val database = FirebaseDatabase.getInstance()
         lateinit var drinkIdReference: DatabaseReference
         drinkIdReference = Firebase.database.reference.child("Users").child(user!!.uid).child("LikedDrinks")
@@ -170,14 +172,47 @@ class MainActivity : AppCompatActivity(), View.OnClickListener{
         }
         drinkIdReference.addValueEventListener(likedDrinksListener)
         onFavoriteDrinkSuccess()
-
-
-
-
     }
+
+    private fun search() {
+        var searchTerms = edit_txt_drink_search.text.toString()
+        var searchTermsValidity: Boolean = false
+
+        if (searchTerms.isEmpty()) {
+            onError()
+        }
+        else {
+
+
+            val newCall = newRequest.searchDrinksByName(searchTerms)
+
+            newCall.enqueue(object : Callback<Drinks> {
+                override fun onFailure(call: Call<Drinks>, t: Throwable) {
+                }
+
+                override fun onResponse(call: Call<Drinks>, response: Response<Drinks>) {
+                    if (response.isSuccessful) {
+                        if (response.body()?.drinks?.size != null) {
+
+                            response.body()?.drinks?.let { onSuccess(it) }
+
+                        } else {
+                            onError()
+                        }
+                    } else {
+                        onError()
+                    }
+                }
+
+            })
+        }
+        edit_txt_drink_search.text.clear()
+    }
+
     private fun getLikedDrinks() {
+        // updateLikedDrinks would be a more fitting name because this doesn't return the current liked drinks, it updates the reference
+
         val user = FirebaseAuth.getInstance().currentUser
-        //val likedDrinks = LikedDrink(null, user!!.uid, null, null, null )
         val database = FirebaseDatabase.getInstance()
         lateinit var drinkIdReference: DatabaseReference
         drinkIdReference = Firebase.database.reference.child("Users").child(user!!.uid).child("LikedDrinks")
@@ -194,13 +229,9 @@ class MainActivity : AppCompatActivity(), View.OnClickListener{
                     }
                 }
             }
-
             override fun onCancelled(databaseError: DatabaseError) {
-
             }
         }
         drinkIdReference.addValueEventListener(likedDrinksListener)
-
-
     }
 }
