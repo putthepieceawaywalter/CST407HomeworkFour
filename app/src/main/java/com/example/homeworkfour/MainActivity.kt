@@ -107,10 +107,12 @@ class MainActivity : AppCompatActivity(), View.OnClickListener{
     }
 
     private fun onFavoriteDrinkSuccess() {
+        getLikedDrinks()
         recyclerView.adapter = favoriteAdapter
         recyclerView.adapter = likedDrinks?.toMutableList()?.let { FavoriteDrinkAdapter(it)}
         if (likedDrinks != null)( {
             favoriteAdapter.appendDrinks(likedDrinks)
+
 
         })
     }

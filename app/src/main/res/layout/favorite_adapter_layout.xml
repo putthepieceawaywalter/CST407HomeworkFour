@@ -44,7 +44,7 @@
                     android:fontFamily="sans-serif-condensed-medium"/>
 
                 <Button
-                    android:id="@+id/remove_favorite"
+                    android:id="@+id/btn_remove_favorite"
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:text="@string/remove"
