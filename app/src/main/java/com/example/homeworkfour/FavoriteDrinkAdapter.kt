@@ -13,11 +13,14 @@ import com.google.firebase.database.*
 import com.google.firebase.database.ktx.database
 import com.google.firebase.database.ktx.getValue
 import com.google.firebase.ktx.Firebase
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class FavoriteDrinkAdapter(
     //private var drinks: MutableList<Result?> = ArrayList(),
-    private val likedDrinks: MutableList<LikedDrink>
-    //private var onDrinkClick: (drinkResult: Result) -> Unit,
+    private val likedDrinks: MutableList<LikedDrink>,
+    private var onDrinkClick: (drinkResult: Result) -> Unit
     //private var onDrinkClick: (drinkResult: LikedDrink) -> Unit
 ): RecyclerView.Adapter<FavoriteDrinkAdapter.DrinksViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FavoriteDrinkAdapter.DrinksViewHolder {
@@ -31,7 +34,7 @@ class FavoriteDrinkAdapter(
     override fun getItemCount(): Int {
         return likedDrinks.size
     }
-    
+
     override fun onBindViewHolder(holder: DrinksViewHolder, position: Int) {
         return holder.bind(likedDrinks[position])
     }
@@ -63,12 +66,58 @@ class FavoriteDrinkAdapter(
             if (likedDrinks != null) {
                 title.text = drinks.name
             }
+            itemView.setOnClickListener{
+                if (drinks != null) {
+                    onDrinkClick(drinks)
+                }
+            }
         }
     }
     fun appendDrinks(drinks: List<LikedDrink?>) {
 
         this.likedDrinks.addAll(likedDrinks)
         notifyItemRangeInserted(this.likedDrinks.size, likedDrinks.size)
+    }
+    fun onDrinkSearchSuccess(drinks: List<Result>) {
+
+        val result: Result = drinks[0]
+        onDrinkClick.invoke(result)
+
+
+
+    }
+    fun onDrinkSearchError() {
+
+    }
+    fun onDrinkClick(likedDrink: LikedDrink) {
+        // call cocktail api with drinks.name
+        var searchTerms: String? = likedDrink.name
+        val newRequest = ServiceBuilder.buildService()
+
+        val newCall = searchTerms?.let { newRequest.searchDrinksByName(it) }
+
+        if (newCall != null) {
+            newCall.enqueue(object : Callback<Drinks> {
+                override fun onFailure(call: Call<Drinks>, t: Throwable) {
+                }
+
+                override fun onResponse(call: Call<Drinks>, response: Response<Drinks>) {
+                    if (response.isSuccessful) {
+                        if (response.body()?.drinks?.size != null) {
+
+                            response.body()?.drinks?.let { onDrinkSearchSuccess(it) }
+
+                        } else {
+                            onDrinkSearchError()
+                        }
+                    } else {
+                        onDrinkSearchError()
+                    }
+                }
+
+            })
+        }
+
     }
 
 }

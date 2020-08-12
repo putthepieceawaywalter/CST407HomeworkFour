@@ -32,16 +32,13 @@ class MainActivity : AppCompatActivity(), View.OnClickListener{
     var favoriteDrinkResults :MutableList<Result?> = mutableListOf()
 
     private var drinksAdapter: DrinksAdapter = DrinksAdapter(drinks, ::drinkDetails, favoriteDrinks)
-    private var favoriteAdapter: FavoriteDrinkAdapter = FavoriteDrinkAdapter(likedDrinks)
+    private var favoriteAdapter: FavoriteDrinkAdapter = FavoriteDrinkAdapter(likedDrinks, ::drinkDetails)
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-
-
-
+        
         btn_scroll_drinks_button.setOnClickListener(this)
         btn_view_favorite_drinks.setOnClickListener(this)
         btn_search.setOnClickListener(this)
@@ -109,7 +106,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener{
     private fun onFavoriteDrinkSuccess() {
         getLikedDrinks()
         recyclerView.adapter = favoriteAdapter
-        recyclerView.adapter = likedDrinks?.toMutableList()?.let { FavoriteDrinkAdapter(it)}
+        recyclerView.adapter = likedDrinks?.toMutableList()?.let { FavoriteDrinkAdapter(it, ::drinkDetails)}
         if (likedDrinks != null)( {
             favoriteAdapter.appendDrinks(likedDrinks)
 
