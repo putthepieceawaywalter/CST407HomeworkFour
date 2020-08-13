@@ -29,8 +29,6 @@ class FavoriteDrinkAdapter(
         return DrinksViewHolder(view)
     }
 
-
-
     override fun getItemCount(): Int {
         return likedDrinks.size
     }
@@ -83,8 +81,6 @@ class FavoriteDrinkAdapter(
         val result: Result = drinks[0]
         onDrinkClick.invoke(result)
 
-
-
     }
     fun onDrinkSearchError() {
 
@@ -117,8 +113,6 @@ class FavoriteDrinkAdapter(
 
             })
         }
-
     }
-
 }
 

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">HomeworkFour</string>
+    <string name="app_name">drinder</string>
     <string name="title">drinder</string>
     <string name="description">The app that lets you choose your favorite drinks</string>
     <string name="view_drinks">view some drinks</string>

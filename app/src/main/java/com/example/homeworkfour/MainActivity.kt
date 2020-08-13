@@ -38,7 +38,6 @@ class MainActivity : AppCompatActivity(), View.OnClickListener{
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        
         btn_scroll_drinks_button.setOnClickListener(this)
         btn_view_favorite_drinks.setOnClickListener(this)
         btn_search.setOnClickListener(this)
@@ -50,7 +49,6 @@ class MainActivity : AppCompatActivity(), View.OnClickListener{
         when(button?.id) {
             R.id.btn_scroll_drinks_button -> {
                 scrollDrinks()
-
             }
             R.id.btn_view_favorite_drinks -> {
                 favorites()
@@ -76,12 +74,6 @@ class MainActivity : AppCompatActivity(), View.OnClickListener{
 
     }
 
-//    private fun favoriteDetails(likedDrink : LikedDrink) {
-    // Hey Lucas I know you don't like to do's in comments but you'll have to deal with this one!
-//        val intent = Intent(this, LikedDrink::class.java)
-//        intent.putExtra("LIKEDDRINK", likedDrink)
-//        startActivity()
-//    }
     private fun onSuccess(drinks: List<Result?>) {
 
         // added mutable list of as third parameter so the red line would go away, probably not correct

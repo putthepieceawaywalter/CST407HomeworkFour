@@ -68,20 +68,14 @@
         <com.google.android.gms.common.SignInButton
             android:id="@+id/google_button"
             android:layout_width="wrap_content"
-            android:layout_gravity="center"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="8dp"
             android:padding="8dp" />
-        <Button
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/btn_logout"
-            android:text="@string/logout"
-            android:layout_gravity="center"
-            />
+
 
 
 

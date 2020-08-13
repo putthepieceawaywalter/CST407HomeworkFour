@@ -39,8 +39,6 @@ class LoginActivity : AppCompatActivity() {
     //Firebase references
     private var mAuth: FirebaseAuth? = null
 
-    //
-
     // Google Sign in stuff
     val RC_SIGN_IN: Int = 1
     lateinit var mGoogleSignInClient: GoogleSignInClient
@@ -48,18 +46,13 @@ class LoginActivity : AppCompatActivity() {
 
     private lateinit var firebaseAuth: FirebaseAuth
 
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
-
-
         firebaseAuth = FirebaseAuth.getInstance()
         configureGoogleSignIn()
         setupUI()
-
 
         initialize()
 
@@ -78,8 +71,8 @@ class LoginActivity : AppCompatActivity() {
         btnLogin!!.setOnClickListener { loginUser() }
 
 
-        btnLogout = findViewById<View>(R.id.btn_logout) as Button
-        btnLogout!!.setOnClickListener { logoutUser() }
+        //btnLogout = findViewById<View>(R.id.btn_logout) as Button
+        //btnLogout!!.setOnClickListener { logoutUser() }
 
     }
     private fun loginUser() {
@@ -112,14 +105,6 @@ class LoginActivity : AppCompatActivity() {
     private fun logoutUser() {
         FirebaseAuth.getInstance().signOut()
     }
-
-
-
-
-
-
-
-    //////////////////////////////////////////////////////////////////////////////////////////////////
     // google stuff
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

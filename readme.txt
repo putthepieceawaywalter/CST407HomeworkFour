@@ -1,12 +1,11 @@
 
-Notes about my project
+Hey Lucas from Homework four I added a few things
 
-I struggled a lot more with viewing my favorited items than I did with any other part of this app.
+I added the cocktail api search by name function (and I use it in my favorite drinks adapter when the user clicks on a drink to view the details of a drink they have favorited)
 
-I can't have liked drinks persist between sessions unless I either ask the cocktail api for the info for the liked drinks or store all of the info for the liked drinks on firebase
-for a few reasons I'm going to store it on firebase
-1. I think it will be easier
-2. I think it will be faster
+I added the ability to remove drinks from the favorites list (and that would also remove it from the firebase database)
 
-If this were a larger scale application I would do the api calls so I wouldn't have to store so much redundant data but as this project is due in 12 hours and I work for 8 of those I have to implement
-what I think I will have time for. 
+I added the sign in with google button
+
+I updated the fonts and colors of all of the gui pages so they would match
+
