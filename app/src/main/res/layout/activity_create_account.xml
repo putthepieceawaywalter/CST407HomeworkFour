@@ -2,31 +2,50 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@drawable/manhattan">
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/txtViewTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/title"
+        android:textColor="#8403fc"
+        android:textAlignment="center"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:paddingTop="30dp"
+        android:textSize="30dp"
+        />
     <EditText
         android:id="@+id/editTxtFirstName"
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:hint="@string/first_name"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:textColor="#8403fc"
         />
     <EditText
         android:id="@+id/editTxtLastName"
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:hint="@string/last_name"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:textColor="#8403fc"
         />
     <EditText
         android:id="@+id/editTxtEmail"
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:hint="@string/email"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:textColor="#8403fc"
         />
     <EditText
         android:id="@+id/editTxtPassword"
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:hint="@string/password"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:textColor="#8403fc"
         />
     <Button
         android:id="@+id/btn_create_account_submit"
@@ -34,5 +53,7 @@
         android:layout_marginTop="50dp"
         android:layout_height="wrap_content"
         android:text="@string/submit"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:textColor="#8403fc"
         />
 </LinearLayout>

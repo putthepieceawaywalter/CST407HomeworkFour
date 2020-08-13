@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
@@ -23,14 +25,36 @@
                 android:contentDescription="Drink Image" />
 
 
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
                 <TextView
+                    android:id="@+id/drink_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/drink_name"
-                    android:layout_margin="5dp"
+                    android:layout_gravity="left"
+                    android:text="@string/drink_name"
                     android:textSize="15sp"
-                    android:text=""/>
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:textColor="#8403fc"
+                    android:fontFamily="sans-serif-condensed-medium"/>
 
+                <Button
+                    android:id="@+id/btn_remove_favorite"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/remove"
+                    android:textColor="#8403fc"
+                    android:fontFamily="sans-serif-condensed-medium"
+                    android:layout_gravity="right"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 

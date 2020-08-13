@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -29,24 +30,52 @@
         android:paddingTop="10dp"
         />
 
-    <Button
-        android:id="@+id/btn_scroll_drinks_button"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColor="#ffffff"
-        android:layout_marginTop="30dp"
-        android:fontFamily="sans-serif-condensed-medium"
-        android:background="#8403fc"
-        android:text="@string/view_drinks" />
+        android:layout_height="90dp">
 
-    <Button
-        android:id="@+id/btn_view_favorite_drinks"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/view_favorited_drinks"
-        android:textColor="#8403fc"
-        android:layout_marginTop="30dp"
-        />
+        <Button
+            android:id="@+id/btn_scroll_drinks_button"
+            android:layout_width="150dp"
+            android:layout_height="40dp"
+            android:background="#8403fc"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:text="@string/view_drinks"
+            android:textColor="#ffffff"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/btn_search"
+            android:layout_width="150dp"
+            android:textColor="#8403fc"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:layout_height="40dp"
+            android:text="@string/search"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/btn_view_favorite_drinks"
+            android:layout_width="150dp"
+            android:textColor="#8403fc"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:layout_height="40dp"
+            android:text="@string/view_favorited_drinks"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/edit_txt_drink_search"
+            android:layout_width="200dp"
+            android:layout_height="40dp"
+            android:hint="@string/search_hint"
+            android:textColor="#8403fc"
+            android:fontFamily="sans-serif-condensed-medium"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
@@ -54,6 +83,4 @@
         android:layout_margin="10dp"
         android:layout_marginTop="213dp" />
 
-
-    <!---->
 </LinearLayout>

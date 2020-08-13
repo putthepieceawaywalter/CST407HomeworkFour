@@ -36,8 +36,6 @@ class DrinksAdapter(
         private val title: TextView = itemView.findViewById(R.id.drink_name)
 
         fun bind(drinks: Result?) {
-
-
             val toggleButton = itemView.findViewById<ToggleButton>(R.id.favorite_this_drink)
             toggleButton.setOnCheckedChangeListener {_, isChecked ->
                 val user = FirebaseAuth.getInstance().currentUser
@@ -56,8 +54,6 @@ class DrinksAdapter(
                         if (!exists) {
                             val newLikeReference = database.reference.child("Users").child(user.uid).child("LikedDrinks").push().key
                             likedDrink.key = newLikeReference
-
-
 
                             database.reference.child("Users").child(user.uid).child("LikedDrinks").child(newLikeReference.toString()).setValue(likedDrink)
                             myLikedDrinks.add(likedDrink)
@@ -78,8 +74,6 @@ class DrinksAdapter(
                     }
                 }
 
-
-
             var liked = false
             myLikedDrinks?.forEach {
                 if (drinks != null) {
@@ -89,11 +83,7 @@ class DrinksAdapter(
                 }
             }
 
-
-
             toggleButton.isChecked = liked
-
-
 
             if (drinks != null) {
                 Glide.with(itemView.context).load(drinks.strDrinkThumb).into(photo)

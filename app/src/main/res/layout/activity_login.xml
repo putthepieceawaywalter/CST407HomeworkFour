@@ -6,12 +6,26 @@
     android:background="@drawable/marg">
 
 
+
+        <TextView
+            android:id="@+id/txtViewTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/title"
+            android:textColor="#8403fc"
+            android:textAlignment="center"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:paddingTop="30dp"
+            android:textSize="30dp"
+            />
         <EditText
             android:id="@+id/editTxtLoginEmail"
             android:layout_width="match_parent"
             android:layout_height="55dp"
             android:layout_marginTop="10dp"
+            android:fontFamily="sans-serif-condensed-medium"
             android:hint="@string/email"
+            android:textColor="#8403fc"
             android:textAlignment="center" />
 
         <EditText
@@ -21,6 +35,8 @@
             android:layout_height="55dp"
             android:layout_marginTop="10dp"
             android:hint="@string/password"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:textColor="#8403fc"
             android:textAlignment="center" />
 
         <RelativeLayout
@@ -31,6 +47,8 @@
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:text="@string/login"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:textColor="#8403fc"
             android:layout_centerInParent="true"/>
         </RelativeLayout>
 
@@ -40,12 +58,23 @@
             android:layout_height="wrap_content">
         <Button
             android:id="@+id/btn_create_account"
-
+            android:textColor="#8403fc"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:text="@string/create_account" />
         </RelativeLayout>
+
+        <com.google.android.gms.common.SignInButton
+            android:id="@+id/google_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:padding="8dp" />
 
 
 

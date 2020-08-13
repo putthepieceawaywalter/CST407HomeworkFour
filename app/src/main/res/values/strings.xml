@@ -1,9 +1,9 @@
 <resources>
-    <string name="app_name">HomeworkFour</string>
+    <string name="app_name">drinder</string>
     <string name="title">drinder</string>
     <string name="description">The app that lets you choose your favorite drinks</string>
-    <string name="view_drinks">Scroll through some drinks</string>
-    <string name="view_favorited_drinks">View your favorited drinks</string>
+    <string name="view_drinks">view some drinks</string>
+    <string name="view_favorited_drinks">favorite drinks</string>
     <string name="email">Email</string>
     <string name="password">Password</string>
     <string name="login">Login</string>
@@ -12,5 +12,11 @@
     <string name="last_name">Last Name</string>
     <string name="submit">Submit</string>
     <string name="placeholder">placeholder</string>
+    <string name="drink_name">drink name</string>
+    <string name="remove">remove</string>
+    <string name="search">search</string>
+    <string name="search_hint">Type in a drink</string>
+    <string name="logout">logout</string>
+
 
 </resources>
